@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do List</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <section class="wrapper">
+
+        <div class="todolist">
+            <h1 class="heading-list">Список</h1>
+
+            <div class="list active">
+                <div class="list__check">
+                    <label for="" class="list__check--label">
+                        <input type="checkbox" checked class="list__check--label--input">
+                    </label>
+                </div>
+                <div class="list__order">
+                    <h2 class="list__order--h2">Задача</h2>
+                    <p class="list__order--p">
+                        Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться.
+                    </p>
+                </div>
+                <div class="list__delete">
+                    <div class="img">
+                        <img src="img/delete.png" alt="Удалить">
+                    </div>
+                </div>
+            </div>
+
+            <div class="list">
+                <div class="list__check">
+                    <label for="" class="list__check--label">
+                        <input type="checkbox" class="list__check--label--input">
+                    </label>
+                </div>
+                <div class="list__order">
+                    <h2 class="list__order--h2">Задача</h2>
+                    <p class="list__order--p">
+                        Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые.
+                    </p>
+                </div>
+                <div class="list__delete">
+                    <div class="img">
+                        <img src="img/delete.png" alt="Удалить">
+                    </div>
+                </div>
+            </div>
+
+            <div class="list">
+                <div class="list__check">
+                    <label for="" class="list__check--label">
+                        <input type="checkbox" class="list__check--label--input">
+                    </label>
+                </div>
+                <div class="list__order">
+                    <h2 class="list__order--h2">Задача</h2>
+                    <p class="list__order--p">
+                        Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML.
+                    </p>
+                </div>
+                <div class="list__delete">
+                    <div class="img">
+                        <img src="img/delete.png" alt="Удалить">
+                    </div>
+                </div>
+            </div>
+
+
+            <hr class="hr-dashed">
+
+            <h3 class="heading-new-list heading-bold">Новая задача</h3>
+
+            <div class="new-list">
+                <form action="#" class="new-list__form">
+                    <input type="text" class="new-list__form__input" placeholder="Название задачи">
+                    <div class="new-list__form__line"></div>
+                    <textarea name="" class="new-list__form__textarea" placeholder="Описание задачи"></textarea>
+                    <button type="submit" class="new-list__form__button">Добавить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

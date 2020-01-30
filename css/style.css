@@ -1,0 +1,279 @@
+@charset "UTF-8";
+/* Указываем box sizing */
+* {
+  box-sizing: border-box; }
+  *::before, *::after {
+    box-sizing: border-box; }
+
+/* Убираем внутренние отступы */
+ul[class], ol[class] {
+  padding: 0; }
+
+/* Убираем внешние отступы */
+body, h1, h2, h3, h4, p, ul[class], ol[class], li, figure, figcaption, blockquote, dl, dd {
+  margin: 0; }
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5; }
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class], ol[class] {
+  list-style: none; }
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto; }
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block; }
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em; }
+
+/* Наследуем шрифты для инпутов и кнопок */
+input, button, textarea, select {
+  font: inherit; }
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+
+@font-face {
+  font-family: 'Avenir Next Cyr';
+  src: url("../fonts/AvenirNextCyr-Regular.eot");
+  src: local("Avenir Next Cyr Regular"), local("AvenirNextCyr-Regular"), url("../fonts/AvenirNextCyr-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/AvenirNextCyr-Regular.woff") format("woff"), url("../fonts/AvenirNextCyr-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Avenir Next Cyr';
+  src: url("../fonts/AvenirNextCyr-Medium.eot");
+  src: local("Avenir Next Cyr Medium"), local("AvenirNextCyr-Medium"), url("../fonts/AvenirNextCyr-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/AvenirNextCyr-Medium.woff") format("woff"), url("../fonts/AvenirNextCyr-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Avenir Next Cyr';
+  src: url("../fonts/AvenirNextCyr-Bold.eot");
+  src: local("Avenir Next Cyr Bold"), local("AvenirNextCyr-Bold"), url("../fonts/AvenirNextCyr-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/AvenirNextCyr-Bold.woff") format("woff"), url("../fonts/AvenirNextCyr-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Avenir Next Cyr';
+  src: url("../fonts/AvenirNextCyr-Demi.eot");
+  src: local("Avenir Next Cyr Demi"), local("AvenirNextCyr-Demi"), url("../fonts/AvenirNextCyr-Demi.eot?#iefix") format("embedded-opentype"), url("../fonts/AvenirNextCyr-Demi.woff") format("woff"), url("../fonts/AvenirNextCyr-Demi.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+/*shadow*/
+.wrapper {
+  padding: 80px 20px;
+  font-family: 'Avenir Next Cyr';
+  background: url("../img/bg.jpg") no-repeat;
+  background-size: cover;
+  background-position: top center; }
+  .wrapper .todolist {
+    width: 960px;
+    margin: 0 auto; }
+    .wrapper .todolist .heading-list {
+      font-size: 44px;
+      text-align: center;
+      margin-bottom: 50px;
+      font-weight: normal;
+      text-transform: uppercase; }
+      .wrapper .todolist .heading-list .heading-bold {
+        font-weight: bold; }
+    .wrapper .todolist .heading-new-list {
+      font-size: 24px;
+      text-align: center;
+      text-transform: uppercase; }
+    .wrapper .todolist .list {
+      z-index: 2;
+      height: 160px;
+      display: flex;
+      background: #fff;
+      position: relative;
+      align-items: center;
+      margin-bottom: 26px;
+      border-radius: 40px;
+      border: 3px solid #32c5ff; }
+      .wrapper .todolist .list:before {
+        content: "";
+        top: -8px;
+        left: -13px;
+        width: 94px;
+        height: 30px;
+        display: block;
+        position: absolute;
+        background: #fff;
+        transform: rotate(-26deg);
+        border-bottom: 3px solid #32c5ff; }
+      .wrapper .todolist .list.active {
+        z-index: 5;
+        border: 3px solid #21d881;
+        box-shadow: 0px 9px 50px 0px rgba(0, 221, 118, 0.2); }
+        .wrapper .todolist .list.active:before {
+          border-color: #21d881; }
+        .wrapper .todolist .list.active .list__check--label {
+          box-shadow: 0px 5px 15px 0px rgba(20, 188, 92, 0.5);
+          background-image: -moz-linear-gradient(-58deg, #21d881 0%, #0eaf4a 100%);
+          background-image: -webkit-linear-gradient(-58deg, #21d881 0%, #0eaf4a 100%);
+          background-image: -ms-linear-gradient(-58deg, #21d881 0%, #0eaf4a 100%); }
+          .wrapper .todolist .list.active .list__check--label:before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            margin: 0 auto;
+            background: url("../img/checked.png") no-repeat; }
+        .wrapper .todolist .list.active .list__order--h2 {
+          color: #21d881; }
+      .wrapper .todolist .list .list__check {
+        margin-left: 50px;
+        margin-right: 37px; }
+        .wrapper .todolist .list .list__check--label {
+          width: 56px;
+          z-index: 14;
+          height: 56px;
+          display: flex;
+          position: relative;
+          align-items: center;
+          border-radius: 16px;
+          box-shadow: 0px 3px 15px 0px rgba(181, 181, 181, 0.5); }
+          .wrapper .todolist .list .list__check--label--input {
+            top: 0;
+            opacity: 0;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            position: absolute; }
+          .wrapper .todolist .list .list__check--label:hover {
+            box-shadow: 0px 5px 15px 0px rgba(20, 188, 92, 0.5);
+            background-image: -moz-linear-gradient(-58deg, #21d881 0%, #0eaf4a 100%);
+            background-image: -webkit-linear-gradient(-58deg, #21d881 0%, #0eaf4a 100%);
+            background-image: -ms-linear-gradient(-58deg, #21d881 0%, #0eaf4a 100%); }
+            .wrapper .todolist .list .list__check--label:hover:before {
+              content: "";
+              width: 20px;
+              height: 20px;
+              margin: 0 auto;
+              background: url("../img/checked.png") no-repeat; }
+      .wrapper .todolist .list .list__order {
+        padding-right: 14%; }
+        .wrapper .todolist .list .list__order--h2 {
+          font-size: 30px;
+          font-weight: bold; }
+        .wrapper .todolist .list .list__order--p {
+          font-size: 22px;
+          line-height: 1.2; }
+      .wrapper .todolist .list .list__delete {
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: 40px;
+        padding: 16px 19px;
+        border-radius: 100px;
+        border: 1px solid #eb2d65; }
+    .wrapper .todolist .new-list {
+      margin-top: 25px;
+      background: #fff;
+      position: relative;
+      border-radius: 40px;
+      border: 3px solid #32c5ff;
+      padding: 50px 20px 20px 80px; }
+      .wrapper .todolist .new-list:before {
+        content: "";
+        top: -8px;
+        left: -13px;
+        width: 94px;
+        height: 30px;
+        display: block;
+        position: absolute;
+        background: #fff;
+        transform: rotate(-26deg);
+        border-bottom: 3px solid #32c5ff; }
+      .wrapper .todolist .new-list__form {
+        width: 100%;
+        display: flex;
+        flex-flow: column; }
+        .wrapper .todolist .new-list__form__input, .wrapper .todolist .new-list__form__textarea {
+          width: 100%;
+          border: none;
+          color: #b2b2b2; }
+          .wrapper .todolist .new-list__form__input:focus, .wrapper .todolist .new-list__form__textarea:focus {
+            outline: none; }
+          .wrapper .todolist .new-list__form__input::placeholder, .wrapper .todolist .new-list__form__textarea::placeholder {
+            color: #b2b2b2; }
+        .wrapper .todolist .new-list__form__input {
+          font-size: 30px;
+          font-weight: bold; }
+          .wrapper .todolist .new-list__form__input::placeholder {
+            font-size: 30px;
+            font-weight: bold; }
+        .wrapper .todolist .new-list__form__textarea {
+          resize: none;
+          font-size: 22px;
+          line-height: 1.2; }
+          .wrapper .todolist .new-list__form__textarea::placeholder {
+            font-size: 22px; }
+        .wrapper .todolist .new-list__form__line {
+          margin: 17px -20px 13px 0;
+          border-bottom: 1px solid #eaeaea; }
+        .wrapper .todolist .new-list__form__button {
+          border: none;
+          color: #fff;
+          cursor: pointer;
+          font-size: 22px;
+          margin-top: 5px;
+          font-weight: bold;
+          margin-left: auto;
+          padding: 16px 63px;
+          border-radius: 32px;
+          background-image: -moz-linear-gradient(112.437deg, #5c8dff 0%, #2ae335 100%);
+          background-image: -webkit-linear-gradient(112.437deg, #5c8dff 0%, #2ae335 100%);
+          background-image: -ms-linear-gradient(112.437deg, #5c8dff 0%, #2ae335 100%);
+          box-shadow: 0px 4px 15px 0px rgba(153, 184, 205, 0.004); }
+    .wrapper .todolist .hr-dashed {
+      border: none;
+      margin-bottom: 45px;
+      border-bottom: 2px dashed #000; }
+
+@media only screen and (max-width: 850px) {
+  .wrapper .todolist {
+    width: 100%;
+    margin: 0 auto; }
+    .wrapper .todolist .heading-list {
+      font-size: 44px;
+      margin-bottom: 50px; }
+    .wrapper .todolist .heading-new-list {
+      font-size: 24px; }
+    .wrapper .todolist .list {
+      height: auto;
+      padding: 30px;
+      flex-flow: column;
+      text-align: center; }
+      .wrapper .todolist .list .list__check {
+        margin: 0; }
+      .wrapper .todolist .list .list__order {
+        margin: 30px 0; }
+      .wrapper .todolist .list .list__delete {
+        margin: 0; }
+    .wrapper .todolist .new-list {
+      text-align: center;
+      padding-left: 50px; }
+      .wrapper .todolist .new-list__form__button {
+        width: 230px; } }
+
+@media only screen and (max-width: 480px) {
+  .wrapper .todolist .new-list__form__button {
+    margin: 0; } }

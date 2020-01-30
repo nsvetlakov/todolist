@@ -1,0 +1,320 @@
+@import "reset.scss";
+@import "fonts.scss";
+@import "var.scss";
+
+.wrapper {
+    padding: 80px 20px;
+    font-family: 'Avenir Next Cyr';
+    background: url("../img/bg.jpg") no-repeat;
+    background-size: cover;
+    background-position: top center;
+
+    .todolist {
+
+        width: 960px;
+        margin: 0 auto;
+
+        .heading-list {
+            font-size: 44px;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: normal;
+            text-transform: uppercase;
+
+            .heading-bold {
+                font-weight: bold;
+            }
+        }
+
+        .heading-new-list {
+            font-size: 24px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+
+
+        .list {
+            z-index: 2;
+            height: 160px;
+            display: flex;
+            background: $white;
+            position: relative;
+            align-items: center;
+            margin-bottom: 26px;
+            border-radius: 40px;
+            border: 3px solid $blue;
+
+            &:before {
+                content: "";
+                top: -8px;
+                left: -13px;
+                width: 94px;
+                height: 30px;
+                display: block;
+                position: absolute;
+                background: $white;
+                transform: rotate(-26deg);
+                border-bottom: 3px solid $blue;
+            }
+
+            &.active {
+                z-index: 5;
+                border: 3px solid $green;
+                box-shadow: 0px 9px 50px 0px $greenShadowList;
+
+                &:before {
+                    border-color: $green;
+                }
+
+                .list__check {
+                    &--label {
+                        box-shadow: 0px 5px 15px 0px $greenShadowCheck;
+                        background-image: -moz-linear-gradient(-58deg, $green 0%, $greenDark 100%);
+                        background-image: -webkit-linear-gradient(-58deg, $green 0%, $greenDark 100%);
+                        background-image: -ms-linear-gradient(-58deg, $green 0%, $greenDark 100%);
+
+                        &:before {
+                            content: "";
+                            width: 20px;
+                            height: 20px;
+                            margin: 0 auto;
+                            background: url("../img/checked.png") no-repeat;
+                        }
+                    }
+
+                }
+
+                .list__order {
+                    &--h2 {
+                        color: $green;
+                    }
+                }
+            }
+
+            .list__check {
+                margin-left: 50px;
+                margin-right: 37px;
+
+                &--label {
+                    width: 56px;
+                    z-index: 14;
+                    height: 56px;
+                    display: flex;
+                    position: relative;
+                    align-items: center;
+                    border-radius: 16px;
+                    box-shadow: 0px 3px 15px 0px rgba(181, 181, 181, 0.5);
+
+                    &--input {
+                        top: 0;
+                        opacity: 0;
+                        width: 50px;
+                        height: 50px;
+                        cursor: pointer;
+                        position: absolute;
+                    }
+
+                    &:hover {
+                        box-shadow: 0px 5px 15px 0px $greenShadowCheck;
+                        background-image: -moz-linear-gradient(-58deg, $green 0%, $greenDark 100%);
+                        background-image: -webkit-linear-gradient(-58deg, $green 0%, $greenDark 100%);
+                        background-image: -ms-linear-gradient(-58deg, $green 0%, $greenDark 100%);
+
+                        &:before {
+                            content: "";
+                            width: 20px;
+                            height: 20px;
+                            margin: 0 auto;
+                            background: url("../img/checked.png") no-repeat;
+                        }
+                    }
+                }
+            }
+
+            .list__order {
+                padding-right: 14%;
+
+                &--h2 {
+                    font-size: 30px;
+                    font-weight: bold;
+                }
+
+                &--p {
+                    font-size: 22px;
+                    line-height: 1.2;
+                }
+            }
+
+            .list__delete {
+                cursor: pointer;
+                margin-left: auto;
+                margin-right: 40px;
+                padding: 16px 19px;
+                border-radius: 100px;
+                border: 1px solid $pink;
+            }
+        }
+
+
+        .new-list {
+            margin-top: 25px;
+            background: $white;
+            position: relative;
+            border-radius: 40px;
+            border: 3px solid $blue;
+            padding: 50px 20px 20px 80px;
+
+            &:before {
+                content: "";
+                top: -8px;
+                left: -13px;
+                width: 94px;
+                height: 30px;
+                display: block;
+                position: absolute;
+                background: $white;
+                transform: rotate(-26deg);
+                border-bottom: 3px solid $blue;
+            }
+
+            &__form {
+                width: 100%;
+                display: flex;
+                flex-flow: column;
+
+                &__input,
+                &__textarea {
+                    width: 100%;
+                    border: none;
+                    color: $grayDark;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    &::placeholder {
+                        color: $grayDark;
+                    }
+                }
+
+                &__input {
+                    font-size: 30px;
+                    font-weight: bold;
+
+                    &::placeholder {
+                        font-size: 30px;
+                        font-weight: bold;
+                    }
+                }
+
+                &__textarea {
+                    resize: none;
+                    font-size: 22px;
+                    line-height: 1.2;
+
+                    &::placeholder {
+                        font-size: 22px;
+                    }
+                }
+
+                &__line {
+                    margin: 17px -20px 13px 0;
+                    border-bottom: 1px solid $gray;
+                }
+
+                &__button {
+                    border: none;
+                    color: $white;
+                    cursor: pointer;
+                    font-size: 22px;
+                    margin-top: 5px;
+                    font-weight: bold;
+                    margin-left: auto;
+                    padding: 16px 63px;
+                    border-radius: 32px;
+                    background-image: -moz-linear-gradient(112.437deg, $gradienButtonBottom 0%, $gradienButtonTop 100%);
+                    background-image: -webkit-linear-gradient(112.437deg, $gradienButtonBottom 0%, $gradienButtonTop 100%);
+                    background-image: -ms-linear-gradient(112.437deg, $gradienButtonBottom 0%, $gradienButtonTop 100%);
+                    box-shadow: 0px 4px 15px 0px rgba(153, 184, 205, 0.004);
+
+
+                }
+            }
+        }
+
+        .hr-dashed {
+            border: none;
+            margin-bottom: 45px;
+            border-bottom: 2px dashed $black;
+        }
+    }
+
+}
+
+@media only screen and (max-width:850px) {
+    .wrapper {
+        .todolist {
+
+            width: 100%;
+            margin: 0 auto;
+
+            .heading-list {
+                font-size: 44px;
+                margin-bottom: 50px;
+            }
+
+            .heading-new-list {
+                font-size: 24px;
+            }
+
+
+            .list {
+                height: auto;
+                padding: 30px;
+                flex-flow: column;
+                text-align: center;
+
+                .list__check {
+                    margin: 0;
+                }
+
+                .list__order {
+                    margin: 30px 0;
+                }
+
+                .list__delete {
+                    margin: 0;
+                }
+            }
+
+
+            .new-list {
+                text-align: center;
+                padding-left: 50px;
+
+                &__form {
+                    &__button {
+                        width: 230px;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .wrapper {
+        .todolist {
+            .new-list {
+                &__form {
+                    &__button {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+    }
+}
